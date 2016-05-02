@@ -42,9 +42,10 @@ function parseValue(value) {
     return parseList(value);
   } else if (_.isPlainObject(value)) {
     return parseMap(value);
-  } else {
-    return value;
+  } else if(_.isString(value)){
+    return '"' + value + '"';
   }
+  return value;
 }
 
 function parseList(list) {
